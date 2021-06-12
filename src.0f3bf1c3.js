@@ -14,4 +14,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/.posthtmlrc.js");var e=t(require("./templates/photo-card.hbs")),r=t(require("./js/apiService"));function t(e){return e&&e.__esModule?e:{default:e}}const s=document.querySelector("#search-form"),n=document.querySelector(".gallery"),u=new r.default,a=r=>{n.insertAdjacentHTML("beforeend",(0,e.default)(r))},c=()=>{u.fetchImages().then(e=>{a(e)})},i=()=>{n.innerHTML=""},l=e=>{if(e.preventDefault(),u.query=e.currentTarget.elements.query.value,""===u.query)return alert("Введи что-то нормальное");u.resetPage(),n.innerHTML="",u.fetchImages().then(e=>{a(e)})};s.addEventListener("submit",l);
 },{"./sass/main.scss":"clu1","./js/.posthtmlrc.js":"L3VM","./templates/photo-card.hbs":"Dymv","./js/apiService":"eQwa"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-13-image-finder/src.c62d6b98.js.map
+//# sourceMappingURL=/goit-js-hw-13-image-finder/src.0f3bf1c3.js.map
