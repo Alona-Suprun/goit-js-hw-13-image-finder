@@ -28,7 +28,7 @@ const onSearch = e => {
   imagesApiService.query = e.currentTarget.elements.query.value;
 
   if (imagesApiService.query === '') {
-    return alert('Введи что-то нормальное');
+    return;
   }
 
   imagesApiService.resetPage();
@@ -37,3 +37,20 @@ const onSearch = e => {
 };
 
 searchForm.addEventListener('submit', onSearch);
+
+let observer = new IntersectionObserver(
+  (e, observer) => {
+    e.forEach(entry => {
+      if (entry.isIntersecting) {
+        createLi();
+      }
+      observer.unobserve(e.target);
+      observer.observe(document.querySelector('li:last-child'));
+    });
+  },
+  {
+    threshold: 1,
+  },
+);
+
+observer.observe(document.querySelector('li'));
