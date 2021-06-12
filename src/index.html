@@ -10,8 +10,23 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
   <body>
+    <!--форма поиска-->
+    <form class="search-form" id="search-form" onsubmit="event.preventDefault();" role="search">
+      <label for="search">Search for stuff</label>
+      <input
+        id="search"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit">GO</button>
+    </form>
+    <!-- Список с карточками изображений -->
+    <ul class="gallery"></ul>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./js/index.js"></script>
   </body>
