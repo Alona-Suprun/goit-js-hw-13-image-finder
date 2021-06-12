@@ -20,6 +20,7 @@ body {
   background: url('http://i.hizliresim.com/v4Qykv.png');
   display: flex;
   justify-content: center;
+  color: var(--color-dark);
 }
 form {
   position: relative;
@@ -33,14 +34,14 @@ button {
   font-family: var(--font-fam);
   border: 0;
   color: var(--color-dark);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 input[type='text'] {
   width: 100%;
   background: var(--color-light);
   padding: 0 1.6rem;
   border-radius: var(--rad);
-  appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
+  appearance: none;
   transition: all var(--dur) var(--bez);
   transition-property: width, border-radius;
   z-index: 1;
@@ -52,7 +53,7 @@ input[type='text']:focus {
 }
 
 button {
-  display: none; // prevent being able to tab to it
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -61,6 +62,12 @@ button {
   background: var(--color-brand);
   border-radius: 0 var(--rad) var(--rad) 0;
 }
+
+button:hover,
+button:focus {
+  outline: 2px solid var(--color-brand);
+}
+
 input:not(:placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
   width: calc(100% - var(--btn-width));
@@ -68,6 +75,7 @@ input:not(:placeholder-shown) {
     display: block;
   }
 }
+
 label {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
