@@ -6,4 +6,4 @@ var r="/home/runner/work/goit-js-hw-13-image-finder/goit-js-hw-13-image-finder/s
 },{}],"QvaY":[function(require,module,exports) {
 "use strict";require("../sass/main.scss"),require("./.posthtmlrc.js");
 },{"../sass/main.scss":"clu1","./.posthtmlrc.js":"L3VM"}]},{},["QvaY"], null)
-//# sourceMappingURL=/goit-js-hw-13-image-finder/js.e5fbbee5.js.map
+//# sourceMappingURL=/goit-js-hw-13-image-finder/js.fad1329c.js.map
