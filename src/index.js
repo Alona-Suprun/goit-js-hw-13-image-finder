@@ -1,6 +1,8 @@
 import './sass/main.scss';
 import './js/.posthtmlrc.js';
 import imgCardTpl from './templates/photo-card.hbs';
+import imgLiteboxTpl from './templates/litebox.hbs';
+import * as basicLightbox from 'basiclightbox';
 import ImagesApiService from './js/apiService';
 
 const searchForm = document.querySelector('#search-form');
@@ -53,3 +55,14 @@ const observer = new IntersectionObserver(onEntry, {
   rootMargin: '200px',
 });
 observer.observe(photoCards);
+
+const createLightbox = e => {
+  const imageTarget = e.target.dataset;
+  if (e.target.dataset.src === undefined) {
+    return;
+  }
+  const instance = basicLightbox.create(imgLiteboxTpl(imageTarget));
+  instance.show();
+};
+
+imagesContainer.addEventListener('click', createLightbox);
