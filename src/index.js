@@ -44,7 +44,6 @@ const onEntry = entries => {
     if (entry.isIntersecting && imagesApiService.query !== '') {
       imagesApiService.fetchImages().then(images => {
         appendImagesMarkup(images);
-        imagesApiService.incrementPage();
       });
     }
   });
