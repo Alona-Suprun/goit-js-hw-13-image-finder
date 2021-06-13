@@ -5,6 +5,7 @@ import ImagesApiService from './js/apiService';
 
 const searchForm = document.querySelector('#search-form');
 const imagesContainer = document.querySelector('.gallery');
+const photoCards = document.querySelector('#photos');
 
 const imagesApiService = new ImagesApiService();
 
@@ -38,19 +39,18 @@ const onSearch = e => {
 
 searchForm.addEventListener('submit', onSearch);
 
-let observer = new IntersectionObserver(
-  (e, observer) => {
-    e.forEach(entry => {
-      if (entry.isIntersecting) {
-        createLi();
-      }
-      observer.unobserve(e.target);
-      observer.observe(document.querySelector('li:last-child'));
-    });
-  },
-  {
-    threshold: 1,
-  },
-);
+const onEntry = entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && imagesApiService.query !== '') {
+      imagesApiService.fetchImages().then(images => {
+        appendImagesMarkup(images);
+        imagesApiService.incrementPage();
+      });
+    }
+  });
+};
 
-observer.observe(document.querySelector('li'));
+const observer = new IntersectionObserver(onEntry, {
+  rootMargin: '200px',
+});
+observer.observe(photoCards);
